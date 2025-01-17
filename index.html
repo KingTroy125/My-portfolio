@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRISTAN - Developer & Designer</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+     <!-- AOS -->
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Add loading screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <svg class="progress-ring" width="120" height="120">
+                <circle class="progress-ring__circle" stroke="#4CAF50" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
+            </svg>
+            <span class="progress-text">0%</span>
+        </div>
+    </div>
+
+    <!-- Add welcome screen -->
+    <div class="welcome-screen">
+        <h2 class="welcome-text">WELCOME</h2>
+    </div>
+
+    <!-- Wrap existing content in a main-content div -->
+    <div class="main-content">
+        <div class="cursor"></div>
+        <header>
+            <nav>
+                <div class="logo">TRISTAN</div>
+                <div class="nav-links desktop-nav">
+                    <a href="#home">HOME</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#work">WORK</a>
+                    <a href="#skills">SKILLS</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+            
+            <!-- Add mobile menu -->
+            <div class="mobile-menu">
+                <div class="mobile-nav">
+                    <a href="#home">HOME</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#work">WORK</a>
+                    <a href="#skills">SKILLS</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <p class="intro">Hi I'm Tristan.</p>
+                <h1>Front-End Developer, <span class="accent">Graphic Designer</span>, Software Developer</h1>
+                <p class="subtitle">I code whatever helps make my life easier.</p>
+                <button class="cta-button">Say Hi</button>
+            </section>
+
+            <section class="about" id="about">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hi, I'm Tristan Hendricks, a versatile frontend developer, graphic designer, and software developer. I bring ideas to life through sleek user interfaces, compelling visuals, and robust software solutions.</p>
+                        <p>With a passion for innovation and creativity, I aim to deliver exceptional digital experiences that leave a lasting impact. Let's build something incredible together!</p>
+                        <a href="./assets/cv/CV.pdf" download="Tristan_Hendricks_CV.pdf"><button class="download-cv">Download CV</button></a>
+                    </div>
+                    <div class="about-image">
+                        <img src="./assets/Tristan.jpeg" alt="Profile illustration" class="profile-illustration">
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects" id="work">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./assets/ReactWeb.png" alt="Project 1">
+                        </div>
+                        <div class="project-info">
+                            <h3>Front-End Developer</h3>
+                            <p>A full-stack web application built with React and Node.js</p>
+                            <a href="https://github.com/KingTroy125/portfolio-react" class="project-link">See More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="./assets/GD.png" alt="Project 2">
+                        </div>
+                        <div class="project-info">
+                            <h3>Graphic Designer</h3>
+                            <p>Mobile-first responsive website with modern animations</p>
+                            <a href="https://www.behance.net/kingtroy2" class="project-link">See More</a>
+                        </div>
+                    </div>
+
+                    <!-- Add more project cards as needed -->
+                </div>
+            </section>
+
+            <section class="skills" id="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>HTML5</h3>
+                            <span>Advanced (90%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>CSS3</h3>
+                            <span>Expert (85%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>JAVASCRIPT</h3>
+                            <span>Advanced (50%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="50"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>REACT</h3>
+                            <span>Intermediate (75%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>PHOTOSHOP</h3>
+                            <span>Advanced (50%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="50"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>FIGMA</h3>
+                            <span>Proficient (80%)</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="80"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quotes Section -->
+        <section id="quotes" class="quotes-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="zoom-in-down" data-aos-delay="300">Quote</h2>
+                <blockquote class="quote">
+                <p class="reveal-type" data-bg-color="#353535" data-fg-color="white" data-aos="zoom-in-down" data-aos-delay="300">
+                "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs</p>
+                </blockquote>
+            </div>
+        </section>
+  
+    </main>
+    <footer>
+        <div class="container-footer">
+            <div class="content">
+                <div class="social">
+                    <a href="https://www.behance.net/kingtroy2" target="_blank" class="logo-link" aria-label="Behance">
+                        <box-icon type='logo' name='behance'></box-icon>
+                    </a>
+                    <a href="https://github.com/KingTroy125" target="_blank" class="logo-link" aria-label="GitHub">
+                        <box-icon type='logo' name='github'></box-icon>
+                    </a>
+                    <a href="https://dribbble.com" target="_blank" class="logo-link" aria-label="Dribbble">
+                        <box-icon name='dribbble' type='logo'></box-icon>
+                    </a>
+                    <a href="https://www.linkedin.com/in/tristan-hendricks-89a789320/" target="_blank" class="logo-link" aria-label="linkedin">
+                        <box-icon type='logo' name='linkedin'></box-icon>
+                    </a>
+                </div>
+                <p class="copyright">©2025 Tristan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <!-- Box Icon -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/bundle.min.js"></script>
+
+    <!--Lenis-->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script> 
+    <script src="./js/lenis.js"></script>
+
+    <script src="app.js"></script>
+     <!-- AOS -->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <script>
+     AOS.init();
+     </script>
+
+</body>
+</html>
