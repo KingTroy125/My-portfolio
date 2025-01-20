@@ -6,7 +6,8 @@
     <title>TRISTAN - Developer & Designer</title>
     <!-- Style -->
     <link rel="stylesheet" href="./css/footer.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/backgroundeffect.css">
     <!-- Add GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -65,6 +66,7 @@
         </header>
 
         <main>
+            <canvas id="backgroundCanvas"></canvas>
             <section id="home" class="hero">
                 <p class="intro">Hi I'm Tristan.</p>
                 <h1>Front-End Developer, <span class="accent">Graphic Designer</span>, Software Developer</h1>
@@ -79,9 +81,10 @@
                         <p>Hi, I'm Tristan Hendricks, a versatile frontend developer, graphic designer, and software developer. I bring ideas to life through sleek user interfaces, compelling visuals, and robust software solutions.</p>
                         <p>With a passion for innovation and creativity, I aim to deliver exceptional digital experiences that leave a lasting impact. Let's build something incredible together!</p>
                         <a href="./assets/cv/CV.pdf" download="Tristan_Hendricks_CV.pdf"><button class="download-cv">Download CV</button></a>
+                        <a href="https://github.com/KingTroy125/KingTroy125/tree/main"><button class="download-cv">Certificates</button></a>
                     </div>
                     <div class="about-image">
-                        <img src="./assets/Tristan.jpeg" alt="Profile illustration" class="profile-illustration">
+                        <img src="./assets/Tristan.jpg" alt="Profile illustration" class="profile-illustration">
                     </div>
                 </div>
             </section>
@@ -225,6 +228,7 @@
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script> 
     <script src="./js/lenis.js"></script>
 
+    <script src="./js/Backgroundeffect.js"></script>
     <script src="app.js"></script>
      <!-- AOS -->
      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
