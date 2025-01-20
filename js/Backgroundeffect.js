@@ -5,7 +5,7 @@ const canvas = document.getElementById('backgroundCanvas');
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
         // Adjust particle count based on device
-        const particleCount = isMobile ? 50 : 100;
+        const particleCount = isMobile ? 100 : 100;
 
         // Set canvas size with pixel ratio consideration
         function setCanvasSize() {
@@ -27,12 +27,21 @@ const canvas = document.getElementById('backgroundCanvas');
             reset() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.5 + 0.5; // Smaller particles for better performance
-                this.baseSpeed = Math.random() * 0.5 + 0.2; // Base speed for movement
-                this.angle = Math.random() * Math.PI * 2; // Random direction
+                // Larger particles on mobile
+                this.size = isMobile ? 
+                    Math.random() * 4 + 2 : 
+                    Math.random() * 1.5 + 0.5;
+                // Faster movement
+                this.baseSpeed = isMobile ?
+                    Math.random() * 1.5 + 0.5 :
+                    Math.random() * 0.5 + 0.2;
+                this.angle = Math.random() * Math.PI * 2;
                 this.speedX = Math.cos(this.angle) * this.baseSpeed;
                 this.speedY = Math.sin(this.angle) * this.baseSpeed;
-                this.opacity = Math.random() * 0.4 + 0.1;
+                // Higher opacity
+                this.opacity = isMobile ?
+                    Math.random() * 0.8 + 0.2 :
+                    Math.random() * 0.4 + 0.1;
                 this.directionChangeTimer = 0;
                 this.directionChangeInterval = Math.random() * 200 + 100;
             }
@@ -91,7 +100,7 @@ const canvas = document.getElementById('backgroundCanvas');
             });
 
             // Draw connections with distance optimization
-            const maxDistance = isMobile ? 80 : 100;
+            const maxDistance = isMobile ? 150 : 100;
             particles.forEach((p1, i) => {
                 // Only check nearby particles for better performance
                 for (let j = i + 1; j < particles.length; j++) {
@@ -102,7 +111,10 @@ const canvas = document.getElementById('backgroundCanvas');
                     const maxDistanceSquared = maxDistance * maxDistance;
 
                     if (distance < maxDistanceSquared) {
-                        const alpha = 0.1 * (1 - Math.sqrt(distance) / maxDistance);
+                        // Increase connection opacity
+                        const alpha = isMobile ? 
+                            0.3 * (1 - Math.sqrt(distance) / maxDistance) :
+                            0.1 * (1 - Math.sqrt(distance) / maxDistance);
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
@@ -111,6 +123,13 @@ const canvas = document.getElementById('backgroundCanvas');
                     }
                 }
             });
+
+            // Increase line width for mobile
+            if (isMobile) {
+                ctx.lineWidth = 2;
+            } else {
+                ctx.lineWidth = 1;
+            }
         }
 
         // Disable touch events on canvas
