@@ -11,6 +11,7 @@ body {
     color: #fff;
     min-height: 100vh;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 /* Custom Cursor */
@@ -34,7 +35,7 @@ body {
         width: 50px;
         height: 50px;
         background: rgba(255,255,255,0.1);
-        border-color: #00c3ff;
+        border-color: #647BED;
     }
 }
 
@@ -83,12 +84,12 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: #00c3ff;
+    background: #647BED;
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #00c3ff;
+    color: #647BED;
 }
 
 .nav-links a:hover::after {
@@ -97,12 +98,12 @@ nav {
 
 /* Add active state for current page */
 .nav-links a.active {
-    color: #00c3ff;
+    color: #647BED;
 }
 
 .nav-links a.active::after {
     width: 100%;
-    background: #00c3ff;
+    background: #647BED;
 }
 
 /* Desktop-specific styles */
@@ -149,7 +150,7 @@ h1 {
 }
 
 .accent {
-    color: #00c3ff;
+    color: #647BED;
     position: relative;
     display: inline-block;
 }
@@ -247,7 +248,7 @@ h1 {
 
 .mobile-menu-btn.active span:first-child {
     transform: translateY(9px) rotate(45deg);
-    background-color: #00c3ff;
+    background-color: #647BED;
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -257,7 +258,7 @@ h1 {
 
 .mobile-menu-btn.active span:last-child {
     transform: translateY(-9px) rotate(-45deg);
-    background-color: #888;
+    background-color: #647BED;
 }
 
 /* Mobile Menu */
@@ -387,7 +388,7 @@ h1 {
 .progress-ring__circle {
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    stroke: #00c3ff; /* Change this to set the circle color */
+    stroke: #647BED; /* Change this to set the circle color */
     stroke-width: 5; /* Adjust thickness if needed */
     stroke-dasharray: 326.726; /* 2 * π * r */
     stroke-dashoffset: 326.726;
@@ -424,7 +425,7 @@ h1 {
 }
 
 .welcome-text {
-    color: #00c3ff;
+    color: #647BED;
     font-size: 2rem;
     letter-spacing: 8px;
     opacity: 0;
@@ -518,7 +519,7 @@ h1 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #00c3ff;
+    background: #647BED;
     transition: transform 0.5s ease;
     z-index: -1;
 }
@@ -660,12 +661,12 @@ h1 {
     left: 0;
     width: 0;
     height: 2px;
-    background: #00c3ff;
+    background: #647BED;
     transition: width 0.3s ease;
 }
 
 .project-link:hover {
-    color: #00c3ff;
+    color: #647BED;
 }
 
 .project-link:hover::after {
@@ -738,7 +739,7 @@ h1 {
 }
 
 .skill-header span {
-    color: #00c3ff;
+    color: #647BED;
     font-size: 0.9rem;
 }
 
@@ -751,7 +752,7 @@ h1 {
 
 .skill-progress {
     height: 100%;
-    background: #00c3ff;
+    background: #647BED;
     width: 0;
     transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
 }
@@ -815,7 +816,7 @@ h1 {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #00c3ff;
+    background: #647BED;
 }
 
 .quote {
@@ -838,7 +839,7 @@ h1 {
 .quote::after {
     content: '"';
     font-size: 4rem;
-    color: #00c3ff;
+    color: #647BED;
     position: absolute;
     opacity: 0.3;
 }
