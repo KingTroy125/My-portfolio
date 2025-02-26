@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>TRISTAN - Developer & Designer</title>
 
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/backgroundeffect.css">
+    <link rel="stylesheet" href="./css/technologies.css">
     <!-- Add GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -25,10 +26,21 @@
     <!-- Add loading screen -->
     <div class="loading-screen">
         <div class="loader">
-            <svg class="progress-ring" width="120" height="120">
-                <circle class="progress-ring__circle" stroke="#4CAF50" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
+            <svg viewBox="0 0 80 80">
+                <circle r="32" cy="40" cx="40" id="test"></circle>
             </svg>
-            <span class="progress-text">0%</span>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect height="64" width="64" y="8" x="8"></rect>
+            </svg>
         </div>
     </div>
 
@@ -84,8 +96,10 @@
                     <div class="about-text">
                         <p>Hi, I'm Tristan Hendricks, a versatile frontend developer, graphic designer, and software developer. I bring ideas to life through sleek user interfaces, compelling visuals, and robust software solutions.</p>
                         <p>With a passion for innovation and creativity, I aim to deliver exceptional digital experiences that leave a lasting impact. Let's build something incredible together!</p>
-                        <a href="./assets/cv/CV.pdf" download="Tristan_Hendricks_CV.pdf"><button class="download-cv">Download CV</button></a>
-                        <a href="https://github.com/KingTroy125/KingTroy125/tree/main"><button class="download-cv">Certificates</button></a>
+                        <div class="about-buttons">
+                            <a href="./assets/cv/CV.pdf" download="Tristan_Hendricks_CV.pdf" class="download-cv">Download CV</a>
+                            <a href="https://github.com/KingTroy125/KingTroy125/tree/main" class="download-cv">Certificates</a>
+                        </div>
                     </div>
                     <div class="about-image">
                         <img src="./assets/Tristan.jpg" alt="Profile illustration" class="profile-illustration">
@@ -198,18 +212,76 @@
                 </div>
             </section>
 
+            <!-- Technologies Stack Section -->
+            <section class="technologies" id="technologies">
+                <h2>My Stack</h2>
+                <h3>Technologies</h3>
+                <div class="tech-container">
+                    <div class="tech-group">
+                        <h4>Frontend Technologies</h4>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/tech/html5.svg" alt="HTML5">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="200">
+                                <img src="./assets/tech/css3.svg" alt="CSS3">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./assets/tech/javascript.svg" alt="JavaScript">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="400">
+                                <img src="./assets/tech/react.svg" alt="React">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="500">
+                                <img src="./assets/tech/bootstrap.svg" alt="Bootstrap">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="600">
+                                <img src="./assets/tech/next.js.svg" alt="Next.js">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="700">
+                                <img src="./assets/tech/atom.svg" alt="Atom">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="800">
+                                <img src="./assets/tech/flutter.svg" alt="Flutter">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-group">
+                        <h4>Backend Technologies</h4>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="100">
+                                <img src="./assets/tech/node.js.svg" alt="Node.js">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="300">
+                                <img src="./assets/tech/flask.svg" alt="Flask">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="600">
+                                <img src="./assets/tech/mysql.svg" alt="MySQL">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="700">
+                                <img src="./assets/tech/firebase.svg" alt="Firebase">
+                            </div>
+                            <div class="tech-item" data-aos="fade-up" data-aos-delay="700">
+                                <img src="./assets/tech/Github.svg" alt="Github">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Quotes Section -->
-        <section id="quotes" class="quotes-section">
-            <div class="container">
-                <h2 class="section-title" data-aos="zoom-in-down" data-aos-delay="300">Quote</h2>
-                <blockquote class="quote">
-                <p class="reveal-type" data-bg-color="#353535" data-fg-color="white" data-aos="zoom-in-down" data-aos-delay="300">
-                "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs</p>
-                </blockquote>
-            </div>
-        </section>
-  
-    </main>
+            <section id="quotes" class="quotes-section">
+                <div class="container">
+                    <h2 class="section-title" data-aos="zoom-in-down" data-aos-delay="300">Quote</h2>
+                    <blockquote class="quote">
+                    <p class="reveal-type" data-bg-color="#353535" data-fg-color="white" data-aos="zoom-in-down" data-aos-delay="300">
+                    "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs</p>
+                    </blockquote>
+                </div>
+            </section>
+        </main>
+    </div>
     <footer>
         <div id="contact" class="container-footer">
             <div class="content">

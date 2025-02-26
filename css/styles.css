@@ -12,6 +12,60 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     overscroll-behavior: none;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Update heading styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Navigation */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    position: relative;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+/* Hero Section */
+.hero .intro {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.hero .accent {
+    font-weight: 700;
+}
+
+.hero .accent span {
+    display: inline-block;
+    animation: flowUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.hero .subtitle {
+    font-weight: 300;
+    font-size: 1.1rem;
 }
 
 /* Custom Cursor */
@@ -64,17 +118,6 @@ nav {
 .nav-links {
     display: flex;
     gap: 3rem;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    position: relative;
-    font-weight: 500;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
 }
 
 .nav-links a::after {
@@ -151,8 +194,33 @@ h1 {
 
 .accent {
     color: #647BED;
-    position: relative;
     display: inline-block;
+    position: relative;
+}
+
+.accent span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+@keyframes flowUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Restore the original animation */
+.accent span {
+    display: inline-block;
+    animation: flowUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(40px);
 }
 
 .subtitle {
@@ -352,15 +420,150 @@ h1 {
     }
 
     nav {
-        padding: 1.5rem 2rem;
+        padding: 1rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
     }
 
     .hero {
-        padding: 8rem 2rem 4rem;
+        padding: 6rem 1.5rem 4rem;
+        text-align: center;
     }
 
-    h1 {
-        font-size: 2.5rem;
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .hero .intro {
+        font-size: 1rem;
+    }
+
+    .hero .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .about {
+        padding: 4rem 1.5rem;
+    }
+
+    .about-content {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .projects {
+        padding: 4rem 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .skills {
+        padding: 4rem 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        padding: 1.25rem;
+    }
+
+    .technologies {
+        padding: 4rem 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 1rem;
+    }
+
+    .tech-item {
+        width: 100%;
+        height: auto;
+        padding: 0.75rem;
+    }
+
+    .quotes-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .quotes-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .quote p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .loader {
+        width: 36px;
+        height: 36px;
+        margin: 0 12px;
+    }
+
+    .welcome-text {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
+    }
+
+    .cta-button {
+        margin: 0 auto;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-image {
+        max-width: 250px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quote p {
+        font-size: 1rem;
+    }
+
+    .mobile-nav a {
+        font-size: 1.2rem;
     }
 }
 
@@ -371,37 +574,151 @@ h1 {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #000; /* Background color */
+    background: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
+    gap: 10px;
 }
 
 .loader {
+    --path: #2f3545;
+    --dot: #647BED;
+    --duration: 1.5s;
+    width: 44px;
+    height: 44px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
+    margin: 0 16px;
 }
 
-.progress-ring__circle {
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    stroke: #647BED; /* Change this to set the circle color */
-    stroke-width: 5; /* Adjust thickness if needed */
-    stroke-dasharray: 326.726; /* 2 * π * r */
-    stroke-dashoffset: 326.726;
-    transition: stroke-dashoffset 0.35s;
-}
-
-.progress-text {
+.loader:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
     position: absolute;
-    font-size: 1.5rem;
-    color: #fff; /* Text color */
-    font-weight: 500;
+    display: block;
+    background: var(--dot);
+    top: 37px;
+    left: 19px;
+    transform: translate(-18px, -18px);
+    animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
 
+.loader svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.loader svg rect,
+.loader svg polygon,
+.loader svg circle {
+    fill: none;
+    stroke: var(--path);
+    stroke-width: 10px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.loader svg polygon {
+    stroke-dasharray: 145 76 145 76;
+    stroke-dashoffset: 0;
+    animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg rect {
+    stroke-dasharray: 192 64 192 64;
+    stroke-dashoffset: 0;
+    animation: pathRect 1.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg circle {
+    stroke-dasharray: 150 50 150 50;
+    stroke-dashoffset: 75;
+    animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader.triangle {
+    width: 48px;
+}
+
+.loader.triangle:before {
+    left: 21px;
+    transform: translate(-10px, -18px);
+    animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes pathTriangle {
+    33% {
+        stroke-dashoffset: 74;
+    }
+    66% {
+        stroke-dashoffset: 147;
+    }
+    100% {
+        stroke-dashoffset: 221;
+    }
+}
+
+@keyframes dotTriangle {
+    33% {
+        transform: translate(0, 0);
+    }
+    66% {
+        transform: translate(10px, -18px);
+    }
+    100% {
+        transform: translate(-10px, -18px);
+    }
+}
+
+@keyframes pathRect {
+    25% {
+        stroke-dashoffset: 64;
+    }
+    50% {
+        stroke-dashoffset: 128;
+    }
+    75% {
+        stroke-dashoffset: 192;
+    }
+    100% {
+        stroke-dashoffset: 256;
+    }
+}
+
+@keyframes dotRect {
+    25% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(18px, -18px);
+    }
+    75% {
+        transform: translate(0, -36px);
+    }
+    100% {
+        transform: translate(-18px, -18px);
+    }
+}
+
+@keyframes pathCircle {
+    25% {
+        stroke-dashoffset: 125;
+    }
+    50% {
+        stroke-dashoffset: 175;
+    }
+    75% {
+        stroke-dashoffset: 225;
+    }
+    100% {
+        stroke-dashoffset: 275;
+    }
+}
 
 /* Welcome Screen */
 .welcome-screen {
@@ -432,6 +749,8 @@ h1 {
     transform: translateY(20px);
     transition: all 0.8s ease;
     font-weight: 300;
+    font-weight: 600;
+    letter-spacing: 0.2em;
 }
 
 .welcome-text.active {
@@ -487,6 +806,9 @@ h1 {
 
 .about-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .about-text p {
@@ -494,12 +816,21 @@ h1 {
     line-height: 1.8;
     color: #888;
     margin-bottom: 1.5rem;
+    letter-spacing: 0.2px;
 }
 
 .about-text p:last-of-type {
     margin-bottom: 2rem;
 }
 
+/* About Section Button Container */
+.about-buttons {
+    display: flex;
+    gap: 2rem;  /* Consistent gap for all screen sizes */
+    margin-top: 2rem;
+}
+
+/* Button styles */
 .download-cv {
     background: transparent;
     color: #888;
@@ -507,9 +838,10 @@ h1 {
     padding: 0.8rem 2rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
 .download-cv::before {
@@ -532,11 +864,39 @@ h1 {
     transform: translateX(100%);
 }
 
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .about-buttons {
+        justify-content: center;
+        width: 100%;
+        gap: 2rem;  /* Keep the same gap on mobile */
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .about-buttons {
+        gap: 2rem;  /* Keep the same gap on very small screens */
+    }
+}
+
 .about-image {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
 }
 
 .profile-illustration {
@@ -574,6 +934,10 @@ h1 {
         width: 100%;
         max-width: 400px;
         margin: 0 auto;
+    }
+
+    .about-buttons {
+        justify-content: center;
     }
 }
 
@@ -636,12 +1000,14 @@ h1 {
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .project-info p {
     color: #888;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    letter-spacing: 0.2px;
 }
 
 .project-link {
@@ -754,12 +1120,21 @@ h1 {
     height: 100%;
     background: #647BED;
     width: 0;
-    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+    transition: width 1s ease-in-out;
 }
 
-/* Add animation class */
 .skill-progress.animate {
     width: var(--progress);
+    animation: progressAnimation 1s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--progress);
+    }
 }
 
 /* Media Queries */
@@ -806,6 +1181,7 @@ h1 {
     margin-bottom: 3rem;
     color: #fff;
     position: relative;
+    letter-spacing: -0.02em;
 }
 
 .quotes-section .section-title::after {
@@ -833,6 +1209,8 @@ h1 {
     margin: 0;
     position: relative;
     z-index: 1;
+    font-style: italic;
+    letter-spacing: 0.2px;
 }
 
 .quote::before,
@@ -871,4 +1249,189 @@ h1 {
         font-size: 1.2rem;
     }
     
+}
+
+/* General Mobile Adjustments */
+@media (max-width: 768px) {
+    /* Header/Navigation */
+    nav {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 6rem 1.5rem 4rem;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .hero .intro {
+        font-size: 1rem;
+    }
+
+    .hero .subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* About Section */
+    .about {
+        padding: 4rem 1.5rem;
+    }
+
+    .about-content {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Projects Section */
+    .projects {
+        padding: 4rem 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    /* Skills Section */
+    .skills {
+        padding: 4rem 1.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        padding: 1.25rem;
+    }
+
+    /* Technologies Section */
+    .technologies {
+        padding: 4rem 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 1rem;
+    }
+
+    .tech-item {
+        width: 100%;
+        height: auto;
+        padding: 0.75rem;
+    }
+
+    /* Quote Section */
+    .quotes-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .quotes-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .quote p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    /* Loading Screen */
+    .loader {
+        width: 36px;
+        height: 36px;
+        margin: 0 12px;
+    }
+
+    /* Welcome Screen */
+    .welcome-text {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-image {
+        max-width: 250px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quote p {
+        font-size: 1rem;
+    }
+
+    .mobile-nav a {
+        font-size: 1.2rem;
+    }
+}
+
+/* Fix for Mobile Menu */
+.mobile-menu {
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.mobile-menu-btn {
+    z-index: 1002;
+}
+
+/* Improve Touch Targets */
+.nav-links a,
+.mobile-nav a,
+.project-link,
+.download-cv {
+    padding: 0.8rem;
+    margin: -0.8rem;
+}
+
+/* Fix for Mobile Cursor */
+@media (hover: none) {
+    * {
+        cursor: auto !important;
+    }
+
+    .cursor {
+        display: none !important;
+    }
 }

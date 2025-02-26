@@ -105,64 +105,19 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 }
 
 // Loading and Welcome Screen Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingScreen = document.querySelector('.loading-screen');
-    const welcomeScreen = document.querySelector('.welcome-screen');
-    const welcomeText = document.querySelector('.welcome-text');
-    const mainContent = document.querySelector('.main-content');
-    const progressRing = document.querySelector('.progress-ring__circle');
-    const progressText = document.querySelector('.progress-text');
-    
-    // Calculate circle circumference
-    const radius = progressRing.r.baseVal.value;
-    const circumference = radius * 2 * Math.PI;
-    
-    // Set initial dash offset
-    progressRing.style.strokeDasharray = `${circumference} ${circumference}`;
-    progressRing.style.strokeDashoffset = circumference;
-    
-    // Function to set progress
-    function setProgress(percent) {
-        const offset = circumference - (percent / 100 * circumference);
-        progressRing.style.strokeDashoffset = offset;
-        progressText.textContent = `${Math.round(percent)}%`;
-    }
-    
-    // Simulate loading
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += 1;
-        setProgress(progress);
+window.addEventListener('load', () => {
+    // Show loading screen for 1.5 seconds
+    setTimeout(() => {
+        document.querySelector('.loading-screen').style.display = 'none';
+        document.querySelector('.welcome-screen').classList.add('active');
+        document.querySelector('.welcome-text').classList.add('active');
         
-        if (progress >= 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                    welcomeScreen.classList.add('active');
-                    // Animate welcome text
-                    setTimeout(() => {
-                        welcomeText.classList.add('active');
-                        // Add glow effect
-                        setTimeout(() => {
-                            welcomeText.classList.add('glow');
-                            // Start fade out
-                            setTimeout(() => {
-                                welcomeText.classList.add('fade-out');
-                                welcomeScreen.style.opacity = '0';
-                                setTimeout(() => {
-                                    welcomeScreen.style.display = 'none';
-                                    mainContent.classList.add('active');
-                                    initializeMainContent();
-                                }, 500);
-                            }, 800); // Shorter display time
-                        }, 300); // Quicker glow
-                    }, 300); // Quicker appearance
-                }, 300);
-            }, 30);
-        }
-    }, 30);
+        // Show welcome screen for 1.5 seconds
+        setTimeout(() => {
+            document.querySelector('.welcome-screen').classList.remove('active');
+            document.querySelector('.main-content').classList.add('active');
+        }, 1500); // Welcome screen duration
+    }, 1500); // Loading screen duration
 });
 
 // Wrap your existing initialization code in a function
@@ -212,25 +167,8 @@ function initializeMainContent() {
             opacity: 0
         }, '-=0.3');
 
-    // Text split animation for the accent text
-    const accentText = document.querySelector('.accent');
-    const text = accentText.textContent;
-    accentText.innerHTML = '';
-    
-    [...text].forEach((char, i) => {
-        const span = document.createElement('span');
-        span.textContent = char;
-        span.style.display = 'inline-block';
-        accentText.appendChild(span);
-
-        gsap.from(span, {
-            opacity: 0,
-            y: 20,
-            duration: 0.5,
-            delay: 1 + (i * 0.1),
-            ease: 'power4.out'
-        });
-    });
+    // Text animation for accent text
+    animateAccentText();
 
     gsap.from('.about', {
         scrollTrigger: {
@@ -295,18 +233,7 @@ function initializeMainContent() {
     });
 
     // Animate skill bars when they come into view
-    const skillBars = document.querySelectorAll('.skill-progress');
-    skillBars.forEach(bar => {
-        const progress = bar.getAttribute('data-progress');
-        bar.style.setProperty('--progress', `${progress}%`);
-        
-        ScrollTrigger.create({
-            trigger: bar,
-            start: 'top 80%',
-            onEnter: () => bar.classList.add('animate'),
-            onLeaveBack: () => bar.classList.remove('animate')
-        });
-    });
+    animateSkillBars();
 }
 
 // Scroll animations
@@ -377,3 +304,52 @@ gsap.from('footer p', {
     delay: 0.4,
     ease: 'power4.out'
 });
+
+// Animate skill bars when they come into view
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.setProperty('--progress', `${progress}%`);
+        observer.observe(bar);
+    });
+}
+
+// Call this function after the page loads
+window.addEventListener('load', () => {
+    animateSkillBars();
+});
+
+// Text split animation for the accent text
+function animateAccentText() {
+    const accentText = document.querySelector('.accent');
+    const text = accentText.textContent;
+    accentText.innerHTML = '';
+    
+    [...text].forEach((char, i) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.style.display = 'inline-block';
+        accentText.appendChild(span);
+
+        gsap.from(span, {
+            opacity: 0,
+            y: 20,
+            duration: 0.5,
+            delay: 1 + (i * 0.1),
+            ease: 'power4.out'
+        });
+    });
+}
+
+// Call the function when the page loads
+window.addEventListener('load', animateAccentText);
